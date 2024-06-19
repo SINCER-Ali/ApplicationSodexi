@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="../../../" />
+    <title>Déconnexion - Sodexi</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Déconnexion - Sodexi" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href="http://authentication/layouts/overlay/logout.html" />
+    <!-- Styles -->
+    <link href="{% static 'assets/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body id="kt_body" class="auth-bg bgi-size-cover bgi-attachment-fixed bgi-position-center">
+<div class="d-flex flex-column flex-root">
+    <!-- Page Content -->
+    <div class="d-flex flex-column flex-lg-row flex-column-fluid">
+        <!-- Content Section -->
+        <div class="d-flex flex-lg-row-fluid">
+            <div class="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
+                <!-- Sodexi Image -->
+                <img class="mx-auto mw-100 w-150px w-lg-500px mb-20 mb-lg-10" src="{% static 'assets/media/auth/imgsodexi2.png' %}" alt="Sodexi Logo" />
+                <!-- Logout Info -->
+                <div class="text-center mb-10">
+
+                    <p class="text-gray-700 fw-semibold fs-2">Vous avez été déconnecté avec succès.</p>
+                </div>
+                <!-- Login Link -->
+                <div class="text-center mb-4">
+                    <a href="{% url 'login' %}" class="btn btn-primary me-3">Se connecter à nouveau</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Scripts -->
+<script src="{% static 'assets/plugins/global/plugins.bundle.js' %}"></script>
+<script src="{% static 'assets/js/scripts.bundle.js' %}"></script>
+</body>
+</html>

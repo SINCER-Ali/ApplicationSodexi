@@ -1,0 +1,16 @@
+{% extends "admin/change_list_object_tools.html" %}
+{% load i18n admin_urls %}
+
+{% block object-tools-items %}
+{{ block.super }}
+<li>
+    <form action="{% url 'tarif_upload_form' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="redirect-page" value="{{ request.path }}">
+        <input type="file" id="csv-btn" name="csv_file" onchange="form.submit()" style="display: none;"/>
+        <a href="#" class="addlink">
+            <label for="csv-btn">{% trans "Ajouter Un Fichier CSV pour Tarif" %}</label>
+        </a>
+    </form>
+</li>
+{% endblock %}

@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="../../../" />
+    <meta charset="utf-8" />
+    <meta name="description" content="Description here" />
+    <meta name="keywords" content="Keywords here" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Title here" />
+    <meta property="og:url" content="https://example.com" />
+    <meta property="og:site_name" content="Site Name" />
+    <link rel="canonical" href="http://example.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+    <link href="{% static 'assets/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <script>
+        var defaultThemeMode = "light";
+        var themeMode;
+        if (document.documentElement) {
+            if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
+                themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
+            } else {
+                if (localStorage.getItem("data-bs-theme") !== null) {
+                    themeMode = localStorage.getItem("data-bs-theme");
+                } else {
+                    themeMode = defaultThemeMode;
+                }
+            }
+            if (themeMode === "system") {
+                themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            }
+            document.documentElement.setAttribute("data-bs-theme", themeMode);
+        }
+    </script>
+</head>
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed">
+<script>
+    if (window.top != window.self) {
+        window.top.location.replace(window.self.location.href);
+    }
+</script>
+<div class="d-flex flex-column flex-root">
+    <div class="page d-flex flex-row flex-column-fluid">
+        <!--begin::Aside-->yuijokplm
+        <div id="kt_aside" class="aside overflow-visible pb-5 pt-5 pt-lg-0" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '300px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
+            <div class="aside-logo py-8" id="kt_aside_logo">
+                <img alt="Logo" src="{% static 'assets/media/auth/imgsodexi2.png' %}" class="h-50px logo" />
+            </div>
+
+            <div class="aside-menu flex-column-fluid" id="kt_aside_menu">
+                <div class="menu menu-column menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-semibold" id="#kt_aside_menu" data-kt-menu="true">
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/home/' %}here show{% endif %} py-2">
+                        <a href="{% url 'home' %}" class="menu-link menu-center">
+                                <span class="menu-icon me-0">
+                                    <i class="ki-outline ki-home-2 fs-2x"></i>
+                                </span>
+                            <span class="menu-title">Home</span>
+                        </a>
+                    </div>
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/pages/' %}here show{% endif %} py-2">
+                        <a href="{% url 'pages' %}" class="menu-link menu-center">
+                                <span class="menu-icon me-0">
+                                    <i class="ki-outline ki-notification-status fs-2x"></i>
+                                </span>
+                            <span class="menu-title">Pages</span>
+                        </a>
+                    </div>
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/utilities/' %}here show{% endif %} py-2">
+                        <a href="{% url 'utilities' %}" class="menu-link menu-center">
+                                <span class="menu-icon me-0">
+                                    <i class="ki-outline ki-abstract-35 fs-2x"></i>
+                                </span>
+                            <span class="menu-title">Utilities</span>
+                        </a>
+                    </div>
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/page2/' %}here show{% endif %} py-2">
+                        <a href="{% url 'page2' %}" class="menu-link menu-center">
+                                <span class="menu-icon me-0">
+                                    <i class="ki-outline ki-abstract-35 fs-2x"></i>
+                                </span>
+                            <span class="menu-title">Page2</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end::Aside-->
+        <div class="d-flex flex-column flex-row-fluid">
+            <div class="header py-4">
+                <div class="container-fluid d-flex align-items-center justify-content-between">
+                    <div class="d-flex justify-content-center flex-grow-1">
+                        <h1 class="page-title d-flex align-items-center text-dark fw-bolder my-3 fs-1">
+                            {% block title %}
+                            Home
+                            {% endblock %}
+                        </h1>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+                            <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                                <img src="{% static 'assets/media/auth/img2.png' %}" alt="image" />
+                            </div>
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
+                                <div class="menu-item px-5">
+                                    <form action="{% url 'profil' %}" method="get" style="display:inline;">
+                                        <button type="submit" class="menu-link px-5 btn btn-link" style="text-decoration:none; padding:0; border:none; background:none;">Mon Profil</button>
+                                    </form>
+                                </div>
+                                <div class="menu-item px-5">
+                                    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="menu-link px-5 btn btn-link" style="text-decoration:none; padding:0; border:none; background:none;">Déconnexion</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                <div class="container-xxl" id="kt_content_container">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<script>var hostUrl = "{% static 'assets/' %}";</script>
+<script src="{% static 'assets/plugins/global/plugins.bundle.js' %}"></script>
+<script src="{% static 'assets/js/scripts.bundle.js' %}"></script>
+<script src="{% static 'assets/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+<script src="{% static 'assets/plugins/custom/vis-timeline/vis-timeline.bundle.js' %}"></script>
+<script src="{% static 'assets/js/widgets.bundle.js' %}"></script>
+<script src="{% static 'assets/js/custom/widgets.js' %}"></script>
+<script src="{% static 'assets/js/custom/apps/chat/chat.js' %}"></script>
+<script src="{% static 'assets/js/custom/utilities/modals/upgrade-plan.js' %}"></script>
+<script src="{% static 'assets/js/custom/utilities/modals/create-campaign.js' %}"></script>
+<script src="{% static 'assets/js/custom/utilities/modals/create-app.js' %}"></script>
+<script src="{% static 'assets/js/custom/utilities/modals/users-search.js' %}"></script>
+
+</body>
+</html>
