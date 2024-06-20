@@ -43,7 +43,7 @@
 </script>
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
-        <!--begin::Aside-->yuijokplm
+        <!--begin::Aside-->
         <div id="kt_aside" class="aside overflow-visible pb-5 pt-5 pt-lg-0" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '300px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
             <div class="aside-logo py-8" id="kt_aside_logo">
                 <img alt="Logo" src="{% static 'assets/media/auth/imgsodexi2.png' %}" class="h-50px logo" />
@@ -75,12 +75,12 @@
                             <span class="menu-title">Utilities</span>
                         </a>
                     </div>
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/page2/' %}here show{% endif %} py-2">
-                        <a href="{% url 'page2' %}" class="menu-link menu-center">
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/calculatrice/' %}here show{% endif %} py-2">
+                        <a href="{% url 'calculatrice' %}" class="menu-link menu-center">
                                 <span class="menu-icon me-0">
                                     <i class="ki-outline ki-abstract-35 fs-2x"></i>
                                 </span>
-                            <span class="menu-title">Page2</span>
+                            <span class="menu-title">Calculatrice</span>
                         </a>
                     </div>
                 </div>

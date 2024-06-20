@@ -140,3 +140,5 @@ LOGIN_REDIRECT_URL = '/home/'
 #EMAIL_HOST_PASSWORD = 'StageSodexi93!'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
