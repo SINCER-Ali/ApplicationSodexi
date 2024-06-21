@@ -3,5 +3,5 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def utilities(request):
-    return render(request, 'utilities.html')
+def import_cyd40(request):
+    return render(request, 'import_cyd40.html')

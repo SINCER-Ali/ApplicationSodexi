@@ -59,20 +59,20 @@
                             <span class="menu-title">Home</span>
                         </a>
                     </div>
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/pages/' %}here show{% endif %} py-2">
-                        <a href="{% url 'pages' %}" class="menu-link menu-center">
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/import_cyd40/' %}here show{% endif %} py-2">
+                        <a href="{% url 'import_cyd40' %}" class="menu-link menu-center">
                                 <span class="menu-icon me-0">
                                     <i class="ki-outline ki-notification-status fs-2x"></i>
                                 </span>
-                            <span class="menu-title">Pages</span>
+                            <span class="menu-title">Importer CYD 40</span>
                         </a>
                     </div>
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/utilities/' %}here show{% endif %} py-2">
-                        <a href="{% url 'utilities' %}" class="menu-link menu-center">
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/visualiser_cyd40/' %}here show{% endif %} py-2">
+                        <a href="{% url 'visualiser_cyd40' %}" class="menu-link menu-center">
                                 <span class="menu-icon me-0">
                                     <i class="ki-outline ki-abstract-35 fs-2x"></i>
                                 </span>
-                            <span class="menu-title">Utilities</span>
+                            <span class="menu-title">Visualiser CYD 40</span>
                         </a>
                     </div>
                     <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {% if request.path == '/calculatrice/' %}here show{% endif %} py-2">
@@ -130,8 +130,38 @@
 
     </div>
 </div>
+{% block main_content %}
 
-
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #f8f9fa;">
+    <div class="container-lg">
+        <div class="card shadow p-4">
+            <div class="text-center mb-4">
+                <img alt="Logo" src="{% static 'assets/media/auth/imgsodexi2.png' %}" class="h-50px logo mb-3"/>
+                <h1>Bienvenue sur Fénix</h1>
+                <p class="lead">L'outil développé par Sodexi pour gérer l'importation des fichiers CYD 40</p>
+            </div>
+            <div class="text-center mb-4">
+                <h2>Fonctionnalités du Dashboard</h2>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><h4>Importer le fichier CYD40</h4></li>
+                    <li class="mb-2"><h4>Visualiser le fichier traité CYD40</h4></li>
+                    <li class="mb-2"><h4>Calculer le coût d'une Convention ou d'une Cession avec les conditions de poids et de convention exactes</h4></li>
+                </ul>
+            </div>
+            <div class="text-center mb-4">
+                <h2>Informations Techniques</h2>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><h4>L'import de données se fait directement dans l'admin, permettant d'importer un fichier Excel en CSV avec le séparateur : point-virgule.</h4></li>
+                    <li class="mb-2"><h4>En cas de problème, veuillez faire un Kamino.</h4></li>
+                </ul>
+            </div>
+            <div id="tarif-info" class="mt-5 text-center">
+                <p class="text-danger">{{ form.errors }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
 <script>var hostUrl = "{% static 'assets/' %}";</script>
 <script src="{% static 'assets/plugins/global/plugins.bundle.js' %}"></script>

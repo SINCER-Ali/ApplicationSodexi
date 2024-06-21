@@ -1,38 +1,87 @@
-<!-- templates/calculatrice.html -->
 {% extends 'home.html' %}
 
-{% block content %}
 {% block title %}
 Calculateur de Tarif
 {% endblock %}
 
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="card p-4">
-        <h1 class="text-center mb-4">Calculateur de Tarif</h1>
-        <form method="post" action="{% url 'calculatrice' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary mt-3">Calculer</button>
-        </form>
+{% block main_content %}
+<!-- Contenu spécifique pour la page 'Importer CYD40' -->
 
-        {% if tarif_info %}
-        <div id="tarif_info">
-            <h2 class="mt-4">Informations sur le tarif :</h2>
-            <p>Origine : {{ tarif_info.origine }}</p>
-            <p>Destination : {{ tarif_info.destination }}</p>
-            <p>Minimum : {{ tarif_info.minimum }} kg</p>
-            <p>Convention : {{ tarif_info.convention }}</p>
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="container-lg">
+        <div class="card shadow p-4">
+            <h1 class="text-center mb-4">Calculateur de Tarif</h1>
+            <form method="post" action="{% url 'calculatrice' %}" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="id_origine" class="form-label">Origine :</label>
+                    </div>
+                    <div class="col-md-9">
+                        {{ form.origine }}
+                        <div class="invalid-feedback">
+                            {{ form.origine.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 mt-3">
+                    <div class="col-md-3">
+                        <label for="id_destination" class="form-label">Destination :</label>
+                    </div>
+                    <div class="col-md-9">
+                        {{ form.destination }}
+                        <div class="invalid-feedback">
+                            {{ form.destination.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 mt-3">
+                    <div class="col-md-3">
+                        <label for="id_poids_kg" class="form-label">Poids en kg :</label>
+                    </div>
+                    <div class="col-md-9">
+                        {{ form.poids_kg }}
+                        <div class="invalid-feedback">
+                            {{ form.poids_kg.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2 mt-4">
+                    <button type="submit" name="calculate_convention" class="btn btn-primary">Calculer Convention</button>
+                    <button type="submit" name="calculate_cession" class="btn btn-secondary">Calculer Cession</button>
+                </div>
+            </form>
+
+            {% if tarif_info %}
+            <div id="tarif_info" class="mt-5">
+                <h2>Informations sur le tarif :</h2>
+                <p>Origine : {{ tarif_info.origine }}</p>
+                <p>Destination : {{ tarif_info.destination }}</p>
+                <p>Minimum : {{ tarif_info.minimum }} kg</p>
+                <p>Convention : {{ tarif_info.convention }}</p>
+            </div>
+            {% endif %}
 
             {% if cout_estime %}
-            <h2 class="mt-4">Coût estimé :</h2>
-            <p>{{ poids_kg }} kg coûteront {{ cout_estime }} €</p>
+            <div id="cout_estime" class="mt-4">
+                <h2>Coût estimé :</h2>
+                <p>{{ form.cleaned_data.poids_kg }} kg coûteront {{ cout_estime }} €</p>
+            </div>
+            {% endif %}
+
+            {% if cout_cession %}
+            <div id="cout_cession" class="mt-4">
+                <h2>Coût de cession :</h2>
+                <p>{{ form.cleaned_data.poids_kg }} kg coûteront {{ cout_cession }} €</p>
+            </div>
+            {% endif %}
+
+            {% if form.errors %}
+            <div id="form_errors" class="mt-5">
+                <p class="text-danger">{{ form.errors }}</p>
+            </div>
             {% endif %}
         </div>
-        {% elif form.errors %}
-        <div id="tarif-info">
-            <p class="mt-4 text-danger">{{ form.errors }}</p>
-        </div>
-        {% endif %}
     </div>
 </div>
 {% endblock %}
