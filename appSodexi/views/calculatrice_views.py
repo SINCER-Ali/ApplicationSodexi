@@ -6,7 +6,7 @@ def calculateur_tarif(request):
     form = TarifCalculatorForm(request.POST or None)
     cout_estime = None
     cout_cession = None
-    tarif_info = None  # Ajout d'une variable tarif_info pour stocker les détails du tarif
+    tarif_info = None
 
     if request.method == 'POST' and form.is_valid():
         if 'calculate_convention' in request.POST:
@@ -29,5 +29,5 @@ def calculateur_tarif(request):
         'form': form,
         'cout_estime': cout_estime,
         'cout_cession': cout_cession,
-        'tarif_info': tarif_info,  # Passer tarif_info au template
+        'tarif_info': tarif_info,
     })

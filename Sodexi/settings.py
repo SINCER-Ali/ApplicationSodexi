@@ -17,8 +17,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
-
 INSTALLED_APPS = [
     'appSodexi',
     'django.contrib.admin',
@@ -41,7 +39,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Sodexi.urls'
-# Sodexi/settings.py
+
 
 
 
@@ -70,11 +68,11 @@ WSGI_APPLICATION = 'Sodexi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sodexi',       # Replace with your database name
-        'USER': 'postgres',       # Replace with your database user
-        'PASSWORD': 'postgres', # Replace with your database password
-        'HOST': 'localhost',       # Replace with your database host, e.g., 'localhost'
-        'PORT': '5432',       # Replace with your database port, e.g., '5432'
+        'NAME': 'sodexi',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -141,4 +139,9 @@ LOGIN_REDIRECT_URL = '/home/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+import os
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

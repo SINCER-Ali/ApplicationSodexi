@@ -17,12 +17,12 @@ def tarif_upload_form(request):
                 origine = row['Orig']
                 destination = row['Dest']
                 try:
-                    minimum = int(row['MIN'])  # Attempt to convert to int
-                    convention = float(row['CONV'].replace(',', '.'))  # Attempt to convert to float
+                    minimum = int(row['MIN'])
+                    convention = float(row['CONV'].replace(',', '.'))
                 except ValueError as e:
-                    # Handle the case where conversion fails (e.g., log the error, skip the row)
+
                     messages.warning(request, f"Il y a eu une erreur lors de la conversion des données: {str(e)}")
-                    continue  # Skip this row and move to the next one
+                    continue
 
                 Tarif.objects.update_or_create(
                     origine=origine,
